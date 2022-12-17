@@ -6,18 +6,22 @@
 # список: ["123", "234", 123, "567"], ищем: "123", ответ: -1
 # список: [], ищем: "123", ответ: -1
 
-accept_str = input('Введите наборы символов через пробел \n')
-wanted = input('Введите искомый текст: ')
-accepted_lst = accept_str.split()
-count = 0
+from typing import List
 
-for i in range(0,(len(accepted_lst))):
-    if accepted_lst[i] == wanted :   
-        count += 1
+accept_str = input('Введите наборы символов через пробел:\n')
+wanted_str = input('Введите искомую строку: ')
+
+def looking_second_occurrence(arg1:str, arg2:str) -> int:
+    count = 0
+    for k, item in enumerate(accept_str.split()):
+        if item == wanted_str:
+            count += 1
         if count == 2:
-            print(f'Индекс второго вхождения строки "{wanted}": {i}.')
-            break      
-if count !=2:
-    print(f'Второго вхождения строки "{wanted}" нет.')
+            return k
+    return -1
 
+result = looking_second_occurrence(accept_str, wanted_str)
+print(f'Введенная строка: {accept_str}')
+print(f'Искомая строка: {wanted_str}')
+print(f'Индекс ввторого вхождения строки "{wanted_str}": {result}')
 
