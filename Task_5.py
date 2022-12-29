@@ -33,10 +33,21 @@ for a in list_of_tuples:
     else:    
         result_list.append(a)
         
+
 if list_of_matches == []:
-    print(f'Совпадений нет') 
-    print(f'Исходный список кортежей: {list_of_tuples}')
+    print(f'    Совпадений нет') 
+    print(f'    Результирующий список кортежей: {result_list}')
 else:  
-    print(f'Совпадение индекса и числа: {list_of_matches}')
-    print(f'Результирующий список кортежей: {result_list}') 
-     
+    print(f'    Совпадение индекса и числа: {list_of_matches}')
+    print(f'    Результирующий список кортежей: {result_list}') 
+
+# 6 - Из списка выше (Task_5) оставьте только те пары, где сумма кортежа кратна 5
+# Пример: [(10,25),(3,4),(4,1)] => [(10,25),(4,1)]
+
+new_result_list = []
+
+for a in result_list: 
+    if (a[0] + a[1]) % 5 == 0: 
+        new_result_list.append(a) 
+        
+print(f'    Новый лист, где сумма кортежа кратна 5: {new_result_list}')
